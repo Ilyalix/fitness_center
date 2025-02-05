@@ -1,4 +1,4 @@
-package org.springfitnesscenter.service.impl;
+package org.springfitnesscenter.util;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -17,8 +17,8 @@ import java.util.function.IntFunction;
 @Repository
 @Transactional
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class RequestProgramFromClient implements CRUDService <RequestClient>{
-    @Override
+public class RequestProgramFromClient {
+   /* @Override
     public String[] findProgramByCoach(RequestClient requestFromClient) {
         return new String[0];
     }

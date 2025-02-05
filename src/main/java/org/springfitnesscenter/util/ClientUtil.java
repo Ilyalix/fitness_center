@@ -27,7 +27,7 @@ public class ClientUtil {
                 .phones(List.of(phone1,phone2))
                 .email(email)
                 .active(true)
-                .name("Misha")
+                .name("Sasha")
                 .age(45)
                 .build();
 

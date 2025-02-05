@@ -2,8 +2,14 @@ package org.springfitnesscenter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springfitnesscenter.domain.*;
-import org.springfitnesscenter.service.impl.RequestProgramFromClient;
+import org.springfitnesscenter.domain.Client;
+import org.springfitnesscenter.domain.Coach;
+import org.springfitnesscenter.domain.FitnessClub;
+import org.springfitnesscenter.domain.Program;
+import org.springfitnesscenter.service.impl.ClientService;
+import org.springfitnesscenter.service.impl.CoachService;
+import org.springfitnesscenter.service.impl.FitnessClubService;
+import org.springfitnesscenter.service.impl.ProgramService;
 import org.springfitnesscenter.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /*@SpringBootApplication
 public class SpringfitnesscenterApplication {
@@ -29,51 +36,51 @@ public class SpringfitnesscenterApplication {
 @SpringBootApplication
 public class SpringfitnesscenterApplication implements CommandLineRunner {
     private static final Logger logger = LoggerFactory.getLogger(SpringfitnesscenterApplication.class);
-
+/*
     @PersistenceContext
-    EntityManager em;
+    EntityManager em;*/
+
+/*    @Autowired
+    RequestProgramFromClient requestProgramFromClient;*/
 
     @Autowired
-    RequestProgramFromClient requestProgramFromClient;
+    FitnessClubService fitnessClubService;
+
+    @Autowired
+    CoachService coachService;
+
+    @Autowired
+    ProgramService programService;
+
+    @Autowired
+    ClientService clientService;
 
     @Override
     public void run(String... args) throws Exception {
 
-        /*FitnessClub fitnessClub = UtilFitnessClub.createFitnessClub();
 
-        Coach coach = UtilCoach.createCoach();
+
+     //  FitnessClub fitnessClub = UtilFitnessClub.createFitnessClub();
+      //  fitnessClubService.save(fitnessClub);
+
+      //  Coach coach = UtilCoach.createCoach();
+    //    coachService.save(coach);
+
+        Coach coach = coachService.findById(2);
+        FitnessClub fitnessClub = fitnessClubService.findById(2);
+        //Program program = programService.findById(1);
 
         Program program = UtilProgram.createProgram();
-        program.setFitnessClub(fitnessClub);
         program.setCoach(coach);
+        program.setFitnessClub(fitnessClub);
+      //  programService.save(program);
 
-        coach.setProgramList(List.of(program));
+     //   Client client = ClientUtil.creatClient();
+      //  client.setPrograms(Set.of(program));
 
-        Client client = ClientUtil.creatClient();
+    //    clientService.save(client);
 
-        MatchingAd matching = MatchingUtil.createMatching();
-        matching.setClient(client);
-        matching.setProgram(program);
-        matching.setCoach(coach);
-*/
-  /*      em.persist(fitnessClub);
-        em.persist(coach);
-        em.persist(program);
-        em.persist(client);
-        em.persist(matching);*/
 
-      //  RequestClient requestFromClient = UtilRequestFromClient.createRequestFromClient();
-       // String [] programByCoach = requestProgramFromClient.findProgramByCoach(requestFromClient);
-      //  List programByCoach = requestProgramFromClient.findProgramByAgeAndIntensive(requestFromClient);
-        //  List programByAgeAndIntensive = requestProgramFromClient.findProgramByAgeAndIntensive(requestFromClient);
-       //   List programByPrice = requestProgramFromClient.findProgramByPrice(requestFromClient);
-       //    List programByName = requestProgramFromClient.findProgramByName(requestFromClient);
-
-      //  programByName.stream().forEach(System.out::println);
-
- /*       for(Object x : programByCoach){
-            System.out.println(x);
-        }*/
     }
 
     public static void main(String[] args) {

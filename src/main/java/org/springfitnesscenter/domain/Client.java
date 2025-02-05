@@ -6,7 +6,9 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -30,9 +32,14 @@ public class Client extends Person{
     @JoinTable(name = "client_phone", joinColumns = @JoinColumn (name = "FK_Client_ID"),  inverseJoinColumns = @JoinColumn(name = "FK_Phone_ID"))
     List<Phone> phones;
 
-    @OneToMany
+/*    @OneToMany
     @JoinTable(name = "client_program", joinColumns = @JoinColumn (name = "FK_Client_ID"),  inverseJoinColumns = @JoinColumn(name = "FK_Program_ID"))
-    List<Program> programs;
+    List<Program> programs;*/
+
+    @ManyToMany
+    @JoinTable(name = "client_program", joinColumns = @JoinColumn(name = "FK_Client_ID"),
+            inverseJoinColumns = @JoinColumn(name = "FK_Program_ID"))
+    Set<Program> programs = new HashSet<>();;
 
     boolean active;
 

@@ -1,18 +1,14 @@
 package org.springfitnesscenter.service.impl;
 
-import org.springfitnesscenter.domain.RequestClient;
-
-import java.util.List;
 
 public interface CRUDService<T> {
 
-    String[] findProgramByCoach(RequestClient requestFromClient);
+    void save(T t);
 
-    List<String> findProgramByAgeAndIntensive(RequestClient requestFromClient);
+    void update(T t);
 
-    List<String> findProgramByPrice(RequestClient requestFromClient);
+    T findById(int id);
 
-    List<String> findProgramByName(RequestClient requestFromClient);
-
+    void deleteById(int id);
 
 }
