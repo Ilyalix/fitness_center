@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.dao.impl.ClientDAO;
+import org.springfitnesscenter.dao.impl.CrudDAO;
 import org.springfitnesscenter.domain.Client;
 import org.springfitnesscenter.service.impl.ClientService;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,6 @@ import org.springframework.stereotype.Service;
 public class ClientServiceImpl implements ClientService {
 
     ClientDAO clientDAO;
-
 
     @Override
     public void save(Client client) {
@@ -34,6 +34,6 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void deleteById(int id) {
-        clientDAO.findById(id);
+        clientDAO.deleteById(id);
     }
 }

@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.dao.impl.CoachDAO;
+import org.springfitnesscenter.dao.impl.CrudDAO;
 import org.springfitnesscenter.domain.Coach;
 import org.springfitnesscenter.service.impl.CoachService;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,6 @@ import org.springframework.stereotype.Service;
 public class CoachServiceImpl implements CoachService {
 
     CoachDAO coachDAO;
-
 
     @Override
     public void save(Coach coach) {

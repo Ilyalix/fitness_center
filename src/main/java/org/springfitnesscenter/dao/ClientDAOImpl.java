@@ -4,17 +4,12 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.dao.impl.ClientDAO;
-import org.springfitnesscenter.dao.impl.ProgramDAO;
+import org.springfitnesscenter.dao.impl.CrudDAO;
 import org.springfitnesscenter.domain.Client;
-import org.springfitnesscenter.domain.Program;
 import org.springfitnesscenter.repository.ClientRepository;
-import org.springfitnesscenter.repository.ProgramRepository;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 
 @Repository
@@ -41,10 +36,12 @@ public class ClientDAOImpl implements ClientDAO {
         return repository.findById(id).get();
     }
 
-
+    //@Scheduled(cron = "0 0 1 * * *")
     @Override
     public void deleteById(int id) {
-        repository.deleteById(id);
+       repository.deleteClientFromVisitById(id);
+       repository.deleteClientById(id);
 
     }
+
 }

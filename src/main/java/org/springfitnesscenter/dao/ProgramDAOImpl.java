@@ -3,6 +3,7 @@ package org.springfitnesscenter.dao;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springfitnesscenter.dao.impl.CrudDAO;
 import org.springfitnesscenter.dao.impl.ProgramDAO;
 import org.springfitnesscenter.domain.Program;
 import org.springfitnesscenter.repository.ProgramRepository;

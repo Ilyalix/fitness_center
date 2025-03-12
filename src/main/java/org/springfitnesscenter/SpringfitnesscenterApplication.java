@@ -10,7 +10,8 @@ import org.springfitnesscenter.service.impl.ClientService;
 import org.springfitnesscenter.service.impl.CoachService;
 import org.springfitnesscenter.service.impl.FitnessClubService;
 import org.springfitnesscenter.service.impl.ProgramService;
-import org.springfitnesscenter.util.*;
+import org.springfitnesscenter.util.ClientUtil;
+import org.springfitnesscenter.util.UtilProgram;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,7 +19,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
@@ -66,19 +66,21 @@ public class SpringfitnesscenterApplication implements CommandLineRunner {
       //  Coach coach = UtilCoach.createCoach();
     //    coachService.save(coach);
 
-        Coach coach = coachService.findById(2);
-        FitnessClub fitnessClub = fitnessClubService.findById(2);
+        Coach coach = coachService.findById(1);
+        FitnessClub fitnessClub = fitnessClubService.findById(1);
         //Program program = programService.findById(1);
 
         Program program = UtilProgram.createProgram();
         program.setCoach(coach);
         program.setFitnessClub(fitnessClub);
-      //  programService.save(program);
+//        programService.save(program);
 
-     //   Client client = ClientUtil.creatClient();
-      //  client.setPrograms(Set.of(program));
+        Program program1 = programService.findById(2);
 
-    //    clientService.save(client);
+        Client client = ClientUtil.creatClient();
+        client.setPrograms(Set.of(program1));
+
+ //       clientService.save(client);
 
 
     }

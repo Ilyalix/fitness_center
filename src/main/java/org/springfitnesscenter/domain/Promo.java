@@ -1,9 +1,5 @@
 package org.springfitnesscenter.domain;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
@@ -16,14 +12,13 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Setter
 @Getter
-@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
-public class Program {
+public class Promo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "program_id")
+    @Column(name = "promo_id")
     int id;
 
     String name;
@@ -44,7 +39,5 @@ public class Program {
 
     BigDecimal priceProgram;
 
-    @ManyToOne
-    @JoinColumn(name = "FK_Program_Coach")
-    Coach coach;
+
 }

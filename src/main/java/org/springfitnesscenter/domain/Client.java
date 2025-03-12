@@ -6,7 +6,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
-import java.util.HashSet;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 import java.util.Set;
 
@@ -17,36 +17,37 @@ import java.util.Set;
 @SuperBuilder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
-public class Client extends Person{
+public class Client extends Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "client_id")
     int id;
 
+    double height;
+
+    double actualWeight;
+
+    double desiredWeight;
+
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @NonNull
     @JoinColumn(name = "FK_Client_Email")
     Email email;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinTable(name = "client_phone", joinColumns = @JoinColumn (name = "FK_Client_ID"),  inverseJoinColumns = @JoinColumn(name = "FK_Phone_ID"))
+    @JoinTable(name = "client_phone", joinColumns = @JoinColumn(name = "FK_Client_ID"),
+            inverseJoinColumns = @JoinColumn(name = "FK_Phone_ID"))
     List<Phone> phones;
 
-/*    @OneToMany
-    @JoinTable(name = "client_program", joinColumns = @JoinColumn (name = "FK_Client_ID"),  inverseJoinColumns = @JoinColumn(name = "FK_Program_ID"))
-    List<Program> programs;*/
-
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.REMOVE})
+    @NotEmpty
     @JoinTable(name = "client_program", joinColumns = @JoinColumn(name = "FK_Client_ID"),
-            inverseJoinColumns = @JoinColumn(name = "FK_Program_ID"))
-    Set<Program> programs = new HashSet<>();;
+            inverseJoinColumns = @JoinColumn(name = "FK_Program_ID"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"FK_Client_ID", "FK_Program_ID"}))
+    Set<Program> programs;
 
     boolean active;
 
 
-    //add Phone field
-
-    //send info about sales, boolean
-
-    //OneToMany Uni- to Programm
 }
