@@ -31,12 +31,10 @@ public class ProgramDAOImpl implements ProgramDAO {
     @Override
     public Program findById(int id) {
         return repository.findById(id).get();
-
     }
-
 
     @Override
     public void deleteById(int id) {
-        deleteById(id);
+        repository.deleteById(id);
     }
 }

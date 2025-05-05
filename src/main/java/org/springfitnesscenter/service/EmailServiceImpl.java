@@ -31,7 +31,7 @@ public class EmailServiceImpl implements EmailService {
     public EmailServiceImpl(JavaMailSender sender) {
         this.sender = sender;
     }
-    
+
     @Override
     public void sendEmail(Promo promo) {
 
@@ -46,7 +46,7 @@ public class EmailServiceImpl implements EmailService {
 
             message.setTo(emails);
             message.setSubject("Greetings");
-            message.setText(" Name of program " + promo.getName() +
+            message.setText(" Name of program: " + promo.getName() +
                     "\n Name of Fitness: " + promo.getFitnessClub().getName() +
                     "\n Price: " + promo.getPriceProgram());
 

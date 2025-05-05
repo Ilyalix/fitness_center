@@ -37,12 +37,12 @@ public class VisitController {
         visitService.deleteById(id);
     }
 
-    @GetMapping(value = "client/{id_c}")
+    @GetMapping(value = "client/{id_c}") // остаток занятий до достижения желаемого веса
     public String findReminderSportActivities(@PathVariable(value = "id_c") int id) {
         return visitService.remainderSportsActivities(id);
     }
 
-    @GetMapping(value = "client/{id_c}/{p_name}")
+    @GetMapping(value = "client/{id_c}/{p_name}") // сколько посетил занятий
     public String findNumberOfVisits(@PathVariable(value = "id_c") int id, @PathVariable(value = "p_name") String name) {
         return visitService.numberOfTraining(id, name);
     }

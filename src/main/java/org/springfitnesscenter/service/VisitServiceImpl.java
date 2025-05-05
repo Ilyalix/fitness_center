@@ -44,12 +44,12 @@ public class VisitServiceImpl implements VisitService {
         visitDAO.deleteById(id);
     }
 
-    @Override // сколько осталось посещений для достижения цели
+    @Override
     public String remainderSportsActivities(int id) {
         return remainderActivities.findOfActivities(id);
     }
 
-    @Override // сколько посетил занятий
+    @Override
     public String numberOfTraining(int id, String name) {
         return numberOfTraining.findOfNumberOfTraining(id, name);
     }

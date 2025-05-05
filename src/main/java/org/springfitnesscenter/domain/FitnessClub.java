@@ -25,7 +25,8 @@ public class FitnessClub {
     String name;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinTable(name = "club_phone", joinColumns = @JoinColumn (name = "FK_Club_ID"),  inverseJoinColumns = @JoinColumn(name = "FK_Phone_ID"))
+    @JoinTable(name = "club_phone", joinColumns = @JoinColumn (name = "FK_Club_ID"),
+            inverseJoinColumns = @JoinColumn(name = "FK_Phone_ID"))
     List<Phone> phones;
 
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
