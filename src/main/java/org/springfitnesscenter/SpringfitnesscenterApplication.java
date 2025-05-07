@@ -11,6 +11,7 @@ import org.springfitnesscenter.service.impl.CoachService;
 import org.springfitnesscenter.service.impl.FitnessClubService;
 import org.springfitnesscenter.service.impl.ProgramService;
 import org.springfitnesscenter.util.ClientUtil;
+import org.springfitnesscenter.util.UtilFitnessClub;
 import org.springfitnesscenter.util.UtilProgram;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -43,42 +44,42 @@ public class SpringfitnesscenterApplication implements CommandLineRunner {
 /*    @Autowired
     RequestProgramFromClient requestProgramFromClient;*/
 
-    @Autowired
-    FitnessClubService fitnessClubService;
+  //  @Autowired
+ //   FitnessClubService fitnessClubService;
 
-    @Autowired
-    CoachService coachService;
+ //   @Autowired
+ //   CoachService coachService;
 
-    @Autowired
-    ProgramService programService;
+  //  @Autowired
+ //   ProgramService programService;
 
-    @Autowired
-    ClientService clientService;
+  //  @Autowired
+  //  ClientService clientService;
 
     @Override
     public void run(String... args) throws Exception {
 
 
 
-     //  FitnessClub fitnessClub = UtilFitnessClub.createFitnessClub();
-      //  fitnessClubService.save(fitnessClub);
+      // FitnessClub fitnessClub = UtilFitnessClub.createFitnessClub();
+       // fitnessClubService.save(fitnessClub);
 
       //  Coach coach = UtilCoach.createCoach();
     //    coachService.save(coach);
 
-        Coach coach = coachService.findById(1);
-        FitnessClub fitnessClub = fitnessClubService.findById(1);
+      //  Coach coach = coachService.findById(1);
+      //  FitnessClub fitnessClub = fitnessClubService.findById(1);
         //Program program = programService.findById(1);
 
-        Program program = UtilProgram.createProgram();
-        program.setCoach(coach);
-        program.setFitnessClub(fitnessClub);
+      //  Program program = UtilProgram.createProgram();
+     //   program.setCoach(coach);
+     //   program.setFitnessClub(fitnessClub);
 //        programService.save(program);
 
-        Program program1 = programService.findById(2);
+   //     Program program1 = programService.findById(2);
 
-        Client client = ClientUtil.creatClient();
-        client.setPrograms(Set.of(program1));
+  //      Client client = ClientUtil.creatClient();
+  //      client.setPrograms(Set.of(program1));
 
  //       clientService.save(client);
 
