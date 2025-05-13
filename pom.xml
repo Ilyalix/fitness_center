@@ -27,7 +27,7 @@
         <url/>
     </scm>
     <properties>
-        <java.version>14</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -84,7 +84,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.0.7</version>
                 <configuration>
                     <excludes>
                         <exclude>
@@ -95,7 +94,7 @@
                     </excludes>
                 </configuration>
             </plugin>
-    </plugins>
+          </plugins>
     </build>
 
 

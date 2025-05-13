@@ -50,4 +50,8 @@ public class Client extends Person {
     boolean active;
 
 
+    @Version
+    private int version;
+
+
 }

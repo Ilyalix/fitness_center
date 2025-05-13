@@ -23,4 +23,8 @@ public class Phone {
 
     String phone;
 
+
+    @Version
+    private int version;
+
 }

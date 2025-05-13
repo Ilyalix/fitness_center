@@ -20,5 +20,9 @@ public class Coach extends Person{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "coach_id")
     int id;
+
+
+    @Version
+    private int version;
     
 }

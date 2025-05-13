@@ -23,4 +23,8 @@ public class Email {
 
     String email;
 
+
+    @Version
+    private int version;
+
 }

@@ -39,4 +39,8 @@ public class FitnessClub {
 
     boolean active;
 
+
+    @Version
+    private int version;
+
 }

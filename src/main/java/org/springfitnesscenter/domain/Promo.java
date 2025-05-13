@@ -27,9 +27,7 @@ public class Promo {
 
     int qtyActivities;
 
-    @ManyToOne
-    @JoinColumn(name = "FK_Program_Club")
-    FitnessClub fitnessClub;
+    String nameOfFitnessClub;
 
     @Enumerated(EnumType.STRING)
     TypeProgram typeProgram;
@@ -38,6 +36,9 @@ public class Promo {
     ViewProgram viewProgram;
 
     BigDecimal priceProgram;
+
+    @Version
+    private int version;
 
 
 }

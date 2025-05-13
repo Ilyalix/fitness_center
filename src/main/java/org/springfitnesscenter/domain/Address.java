@@ -24,4 +24,8 @@ public class Address {
 
     String district;
 
+
+    @Version
+    private int version;
+
 }

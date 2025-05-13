@@ -30,4 +30,7 @@ public class Visit {
     @JoinColumn(name = "FK_Visit_Program")
     Program program;
 
+    @Version
+    private int version;
+
 }

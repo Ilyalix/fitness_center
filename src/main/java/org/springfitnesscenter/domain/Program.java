@@ -47,4 +47,7 @@ public class Program {
     @ManyToOne
     @JoinColumn(name = "FK_Program_Coach")
     Coach coach;
+
+    @Version
+    private int version;
 }

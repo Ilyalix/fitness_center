@@ -47,7 +47,7 @@ public class EmailServiceImpl implements EmailService {
             message.setTo(emails);
             message.setSubject("Greetings");
             message.setText(" Name of program: " + promo.getName() +
-                    "\n Name of Fitness: " + promo.getFitnessClub().getName() +
+                    "\n Name of Fitness: " + promo.getNameOfFitnessClub() +
                     "\n Price: " + promo.getPriceProgram());
 
             sender.send(message);
