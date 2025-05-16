@@ -9,6 +9,8 @@ import org.springfitnesscenter.domain.Client;
 import org.springfitnesscenter.service.impl.ClientService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -36,4 +38,15 @@ public class ClientServiceImpl implements ClientService {
     public void deleteById(int id) {
         clientDAO.deleteById(id);
     }
+
+    @Override
+    public List<Client> findClientsByProgram(String name) {
+        return clientDAO.findClientsByProgram(name);
+    }
+
+    @Override
+    public List<Client> findClientsByPhone(String name) {
+        return clientDAO.findClientsByPhone(name);
+    }
+
 }

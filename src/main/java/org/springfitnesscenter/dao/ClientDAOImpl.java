@@ -4,12 +4,12 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.dao.impl.ClientDAO;
-import org.springfitnesscenter.dao.impl.CrudDAO;
 import org.springfitnesscenter.domain.Client;
 import org.springfitnesscenter.repository.ClientRepository;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 
 @Repository
@@ -44,4 +44,11 @@ public class ClientDAOImpl implements ClientDAO {
 
     }
 
+    public List<Client> findClientsByProgram(String name) {
+       return repository.findClientsByProgram(name);
+    }
+
+    public List<Client> findClientsByPhone(String name) {
+        return repository.findClientsByPhone(name);
+    }
 }

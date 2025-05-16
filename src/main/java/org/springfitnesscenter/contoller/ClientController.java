@@ -9,6 +9,7 @@ import org.springfitnesscenter.service.impl.ClientService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/client/")
@@ -39,7 +40,13 @@ public class ClientController {
         clientService.deleteById(id);
     }
 
+    @GetMapping(value = "name/{prog}")
+    public List<Client> findClientsByProgram (@PathVariable(value = "prog") String name) {
+        return clientService.findClientsByProgram(name);
+    }
 
-
-
+    @GetMapping(value = "phone/{number}")
+    public List<Client> findClientsByPhone (@PathVariable(value = "number") String name) {
+        return clientService.findClientsByPhone(name);
+    }
 }
