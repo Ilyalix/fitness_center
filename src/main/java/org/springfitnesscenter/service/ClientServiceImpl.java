@@ -7,6 +7,7 @@ import org.springfitnesscenter.dao.impl.ClientDAO;
 import org.springfitnesscenter.dao.impl.CrudDAO;
 import org.springfitnesscenter.domain.Client;
 import org.springfitnesscenter.service.impl.ClientService;
+import org.springfitnesscenter.validation.Validation;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void save(Client client) {
+        Validation.validation(client);
         clientDAO.save(client);
     }
 

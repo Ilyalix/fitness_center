@@ -3,6 +3,7 @@ package org.springfitnesscenter.service;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.domain.Program;
+import org.springfitnesscenter.jwt_processing.JwtRequest;
 import org.springfitnesscenter.service.impl.RemainderActivities;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,7 @@ public class RemainderSportsActivities implements RemainderActivities {
     EntityManager em;
     @Override
     public String findOfActivities(int id) {
+
 
         Query desiredWeightOfClient = em.createQuery("SELECT cl.desiredWeight FROM Visit a JOIN a.client cl WHERE cl.id =: cl_id");
         desiredWeightOfClient.setParameter("cl_id", id);

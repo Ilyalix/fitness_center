@@ -6,7 +6,10 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PositiveOrZero;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,6 +26,8 @@ public class Client extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "client_id")
     int id;
+
+    String password;
 
     double height;
 
@@ -49,6 +54,10 @@ public class Client extends Person {
 
     boolean active;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "client_role", joinColumns = @JoinColumn(name = "Client_FK"),
+            inverseJoinColumns = @JoinColumn(name = "Role_FK"))
+    Set<Role> roles = new HashSet<>();
 
     @Version
     private int version;

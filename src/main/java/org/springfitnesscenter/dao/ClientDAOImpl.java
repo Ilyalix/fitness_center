@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.dao.impl.ClientDAO;
 import org.springfitnesscenter.domain.Client;
 import org.springfitnesscenter.repository.ClientRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,15 +19,25 @@ import java.util.List;
 @AllArgsConstructor
 public class ClientDAOImpl implements ClientDAO {
 
+    PasswordEncoder passwordEncoder;
+
     ClientRepository repository;
 
     @Override
     public void save(Client client) {
+        String password = client.getPassword();
+        String encode = passwordEncoder.encode(password);
+        client.setPassword(encode);
+
        repository.save(client);
     }
 
     @Override
     public void update(Client client) {
+        String password = client.getPassword();
+        String encode = passwordEncoder.encode(password);
+        client.setPassword(encode);
+
         repository.save(client);
 
     }

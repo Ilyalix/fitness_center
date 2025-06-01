@@ -24,4 +24,6 @@ public interface ClientRepository extends JpaRepository <Client, Integer> {
     @Query("FROM Client c JOIN c.phones p WHERE p.phone = :a_phone")
     List<Client> findClientsByPhone(@Param("a_phone") String name);
 
+    Client findByName(String name);
+
 }
