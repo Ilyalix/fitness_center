@@ -4,12 +4,12 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.domain.Promo;
-import org.springfitnesscenter.domain.Visit;
-import org.springfitnesscenter.service.impl.PromoService;
+import org.springfitnesscenter.service.serviceMySql.impl.PromoServiceMySql;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.net.UnknownHostException;
 
 @RestController
 @RequestMapping(value = "/promo/")
@@ -17,11 +17,11 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class PromoController {
 
-    PromoService promoService;
+    PromoServiceMySql promoService;
 
     @Secured("ROLE_ADMIN")
     @PostMapping(value = "save")
-    public void save(@Valid @RequestBody Promo promo){
+    public void save(@Valid @RequestBody Promo promo) throws UnknownHostException {
         promoService.save(promo);
     }
 

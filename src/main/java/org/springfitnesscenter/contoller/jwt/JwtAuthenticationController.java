@@ -7,7 +7,9 @@ import org.springfitnesscenter.domain.Client;
 import org.springfitnesscenter.jwt_processing.JwtRequest;
 import org.springfitnesscenter.jwt_processing.JwtResponse;
 import org.springfitnesscenter.jwt_processing.JwtTokenUtil;
-import org.springfitnesscenter.service.impl.ClientService;
+import org.springfitnesscenter.repository.mongo.ClientMongoRepository;
+import org.springfitnesscenter.service.serviceMySql.impl.ClientServiceMySql;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -32,7 +34,7 @@ public class JwtAuthenticationController {
 
     UserDetailsService service;
 
-    ClientService clientService;
+    ClientServiceMySql repository;
 
     @PostMapping("/authenticate")
     public ResponseEntity<JwtResponse> createAuthenticationToken(@RequestBody JwtRequest request) throws Exception {
@@ -44,7 +46,7 @@ public class JwtAuthenticationController {
 
     @PostMapping("/registration")
     public ResponseEntity registration(@RequestBody Client client) throws Exception {
-        clientService.save(client);
+        repository.save(client);
         return ResponseEntity.ok("OK");
     }
 

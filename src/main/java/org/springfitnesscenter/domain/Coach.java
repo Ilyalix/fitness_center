@@ -3,6 +3,7 @@ package org.springfitnesscenter.domain;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 

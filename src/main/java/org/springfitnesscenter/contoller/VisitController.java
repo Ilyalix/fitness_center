@@ -4,10 +4,11 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.domain.Visit;
-import org.springfitnesscenter.service.impl.VisitService;
+import org.springfitnesscenter.service.serviceMySql.impl.VisitServiceMySql;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.net.UnknownHostException;
 
 @RestController
 @RequestMapping(value = "/visit/")
@@ -15,10 +16,10 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class VisitController {
 
-    VisitService visitService;
+    VisitServiceMySql visitService;
 
     @PostMapping (value = "save")
-    public void save(@Valid @RequestBody Visit visit){
+    public void save(@Valid @RequestBody Visit visit) throws UnknownHostException {
         visitService.save(visit);
     }
 

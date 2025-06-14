@@ -5,10 +5,11 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.domain.FitnessClub;
-import org.springfitnesscenter.service.impl.FitnessClubService;
+import org.springfitnesscenter.service.serviceMySql.impl.FitnessClubServiceMySql;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.net.UnknownHostException;
 
 @RestController
 @RequestMapping(value = "/fitness/")
@@ -16,10 +17,10 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class FitnessClubController {
 
-    FitnessClubService fitnessClubService;
+    FitnessClubServiceMySql fitnessClubService;
 
     @PostMapping(value = "save")
-    public void save(@Valid @RequestBody FitnessClub fitnessClub) {
+    public void save(@Valid @RequestBody FitnessClub fitnessClub) throws UnknownHostException {
         fitnessClubService.save(fitnessClub);
     }
 

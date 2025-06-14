@@ -2,6 +2,7 @@ package org.springfitnesscenter.domain;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 

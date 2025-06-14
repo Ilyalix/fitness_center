@@ -5,11 +5,12 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.domain.Program;
-import org.springfitnesscenter.service.impl.ProgramService;
+import org.springfitnesscenter.service.serviceMySql.impl.ProgramServiceMySql;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.net.UnknownHostException;
 
 @RestController
 @RequestMapping(value = "/program/")
@@ -17,11 +18,11 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class ProgramController {
 
-    ProgramService programService;
+    ProgramServiceMySql programService;
 
     @Secured("ROLE_ADMIN")
     @PostMapping (value = "save")
-    public void save(@Valid @RequestBody Program program){
+    public void save(@Valid @RequestBody Program program) throws UnknownHostException {
         programService.save(program);
     }
 

@@ -4,9 +4,10 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springfitnesscenter.domain.Role;
-import org.springfitnesscenter.service.impl.RoleService;
+import org.springfitnesscenter.service.serviceMySql.impl.RoleServiceMySql;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.net.UnknownHostException;
 
 @RestController
 @RequestMapping(value = "/role/")
@@ -14,10 +15,10 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class RoleController {
 
-    RoleService roleService;
+    RoleServiceMySql roleService;
 
     @PostMapping (value = "save")
-    public void save(@Valid @RequestBody Role role){
+    public void save(@Valid @RequestBody Role role) throws UnknownHostException {
         roleService.save(role);
     }
 
