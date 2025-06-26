@@ -18,7 +18,7 @@ public class RoleController {
     RoleServiceMySql roleService;
 
     @PostMapping (value = "save")
-    public void save(@Valid @RequestBody Role role) throws UnknownHostException {
+    public void save(@Valid @RequestBody Role role) {
         roleService.save(role);
     }
 

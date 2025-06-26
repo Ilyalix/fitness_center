@@ -19,7 +19,7 @@ public class CoachController {
     CoachServiceMySql coachService;
 
     @PostMapping (value = "save")
-    public void save(@Valid @RequestBody Coach coach) throws UnknownHostException {
+    public void save(@Valid @RequestBody Coach coach) {
         coachService.save(coach);
     }
 

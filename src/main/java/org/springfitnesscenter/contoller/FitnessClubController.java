@@ -20,7 +20,7 @@ public class FitnessClubController {
     FitnessClubServiceMySql fitnessClubService;
 
     @PostMapping(value = "save")
-    public void save(@Valid @RequestBody FitnessClub fitnessClub) throws UnknownHostException {
+    public void save(@Valid @RequestBody FitnessClub fitnessClub) {
         fitnessClubService.save(fitnessClub);
     }
 
@@ -38,7 +38,4 @@ public class FitnessClubController {
     public void deleteById (@PathVariable(value = "id") int id) {
         fitnessClubService.deleteById(id);
     }
-
-
-
 }

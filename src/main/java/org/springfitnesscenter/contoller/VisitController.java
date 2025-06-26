@@ -19,7 +19,7 @@ public class VisitController {
     VisitServiceMySql visitService;
 
     @PostMapping (value = "save")
-    public void save(@Valid @RequestBody Visit visit) throws UnknownHostException {
+    public void save(@Valid @RequestBody Visit visit) {
         visitService.save(visit);
     }
 

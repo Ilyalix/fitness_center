@@ -21,7 +21,7 @@ public class PromoController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping(value = "save")
-    public void save(@Valid @RequestBody Promo promo) throws UnknownHostException {
+    public void save(@Valid @RequestBody Promo promo) {
         promoService.save(promo);
     }
 

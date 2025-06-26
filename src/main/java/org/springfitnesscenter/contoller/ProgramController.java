@@ -22,7 +22,7 @@ public class ProgramController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping (value = "save")
-    public void save(@Valid @RequestBody Program program) throws UnknownHostException {
+    public void save(@Valid @RequestBody Program program){
         programService.save(program);
     }
 

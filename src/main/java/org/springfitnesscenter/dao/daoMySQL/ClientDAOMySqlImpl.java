@@ -28,7 +28,6 @@ public class ClientDAOMySqlImpl implements ClientDAOMySql {
         String encode = passwordEncoder.encode(password);
         client.setPassword(encode);
         repository.save(client);
-
     }
 
     @Override
@@ -36,9 +35,7 @@ public class ClientDAOMySqlImpl implements ClientDAOMySql {
         String password = client.getPassword();
         String encode = passwordEncoder.encode(password);
         client.setPassword(encode);
-
         repository.save(client);
-
     }
 
     @Override

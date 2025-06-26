@@ -23,7 +23,7 @@ public class Client extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "client_id")
-    int id;
+    String id;
 
     String password;
 
