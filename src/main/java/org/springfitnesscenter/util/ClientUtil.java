@@ -1,11 +1,9 @@
 package org.springfitnesscenter.util;
 
-import org.springfitnesscenter.domain.Client;
-import org.springfitnesscenter.domain.Email;
-import org.springfitnesscenter.domain.Person;
-import org.springfitnesscenter.domain.Phone;
+import org.springfitnesscenter.domain.*;
 
 import java.util.List;
+import java.util.Set;
 
 public class ClientUtil {
 
@@ -23,15 +21,26 @@ public class ClientUtil {
                 .phone("888")
                 .build();
 
-        Client client = Client.builder()
-                .phones(List.of(phone1,phone2))
-                .email(email)
-                .active(true)
-                .name("Sasha")
-                .age(45)
+        Role role = Role.builder()
+                .name(RoleName.ROLE_ADMIN)
                 .build();
 
-        return client;
+        Program program = UtilProgram.createProgram();
 
+
+        Client client = Client.builder()
+                .name("Sasha")
+                .age(45)
+                .password("123456")
+                .height(180.1)
+                .actualWeight(95.6)
+                .desiredWeight(80.0)
+                .phones(List.of(phone1,phone2))
+                .email(email)
+                .roles(Set.of(role))
+                .programs(Set.of(program))
+                .active(true)
+                .build();
+        return client;
     }
 }

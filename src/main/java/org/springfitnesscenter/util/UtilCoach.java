@@ -7,10 +7,9 @@ public class UtilCoach {
     public static Coach createCoach() {
 
         Coach coach = Coach.builder()
+                .name("Misha")
+                .age(30)
                 .build();
-        coach.setName("Misha");
-        coach.setAge(30);
-
         return coach;
     }
 }

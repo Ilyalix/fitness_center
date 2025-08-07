@@ -20,7 +20,7 @@ public class Coach extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "coach_id")
-    String id;
+    int id;
 
 
     @Version

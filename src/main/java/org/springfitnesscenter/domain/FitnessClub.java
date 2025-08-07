@@ -20,7 +20,7 @@ public class FitnessClub {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "club_id")
-    String id;
+    int id;
 
     String name;
 

@@ -18,7 +18,7 @@ public class Visit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "visit_id")
-    String id;
+    int id;
 
     double actualWeight;
 
